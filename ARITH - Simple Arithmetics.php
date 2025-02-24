@@ -21,7 +21,7 @@ function getInput(string|null $text = null):string|false
 /*
     Function to check that array contains string values from array
 */
-function stringContainsArray(string|false $str, array $arr)
+function stringContainsArray(string|false $str, array $arr):bool
 {
     foreach($arr as $a) {
         if (stripos($str,$a) !== false) return true;
@@ -85,7 +85,7 @@ function calculateExpression(string $expr):void{
 /*
     Function to collect expressions 
 */
-function collectExpressions(int $count, array &$expressions  = []){
+function collectExpressions(int $count, array &$expressions  = []):void{
     for($i = 0; $i < $count; $i++){
         $output = getInput("Type arithmetics calculation, should contains one of -,+,*\n or 'exit' to leave \n");
         if(stringContainsArray($output, ['+', '-', '*'])){
@@ -114,10 +114,5 @@ if(is_numeric($count) && $count > 0){
     echo "Bye!\n";
     exit;
 }
-
-
-
-
-
 
 ?>
